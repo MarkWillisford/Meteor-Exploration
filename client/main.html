@@ -1,7 +1,40 @@
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Note Manager</title>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <nav class="red">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Note Manager</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Current Notes</h1>
+    <ul class="collection">
+      {{#each notes}}
+      {{> note}}
+      {{/each}}
+    </ul>
+  </div>
 </body>
+
+<template name="note">
+  <li class="collection-item">{{text}}</li>
+</template>
