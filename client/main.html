@@ -43,12 +43,14 @@
   <script type="text/javascript">
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
-    console.log(instances);
   </script>
 </body>
 
 <template name="note">
-  <li class="collection-item">{{text}}</li>
+  <li class="collection-item">
+    {{text}} 
+    <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
+  </li>
 </template>
 
 <template name="add">
@@ -61,5 +63,4 @@
       </form>
     </div>
   </div>
-
 </template>
