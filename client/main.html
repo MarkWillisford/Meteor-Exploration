@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
@@ -20,7 +20,11 @@
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Note Manager</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="nav-item">
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#addModal">New Note</a>
           
+          </li>
         </ul>
       </div>
     </div>
@@ -33,8 +37,29 @@
       {{/each}}
     </ul>
   </div>
+
+  {{> add}}
+
+  <script type="text/javascript">
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+    console.log(instances);
+  </script>
 </body>
 
 <template name="note">
   <li class="collection-item">{{text}}</li>
+</template>
+
+<template name="add">
+  <!-- Modal Structure -->
+  <div id="addModal" class="modal">
+    <div class="modal-content">
+      <h3>Add Note</h3>
+      <form class="add-form">
+        <input type="text" name="text" placeholder="Add note . . .">
+      </form>
+    </div>
+  </div>
+
 </template>
